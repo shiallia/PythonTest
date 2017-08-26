@@ -23,7 +23,7 @@ def portScanner(host,port):
 def main():
     start = time.time()
     setdefaulttimeout(1)
-    for p in range(1, 10000):
+    for p in range(1, 8000):
         t = threading.Thread(target=portScanner, args=('123.57.143.114', p))
         threads.append(t)
         t.start()

@@ -82,13 +82,7 @@ if __name__ == '__main__':
         "RR": "www.gozhangfango.xyz",
         "Type": "A",
         "Value": "123.57.70.225",
-
-
-
-
-
     }
     testclient.do_action()
-
 
 

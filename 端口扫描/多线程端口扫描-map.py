@@ -6,7 +6,7 @@ import time
 
 q = queue.Queue()
 
-port_List = list(range(10000))
+port_List = list(range(5000))
 ip = '123.57.143.114'
 
 def portScanner(port):
@@ -23,7 +23,7 @@ def portScanner(port):
 def main():
     setdefaulttimeout(1)
     start = time.time()
-    with ThreadPoolExecutor(max_workers=9999) as executor:
+    with ThreadPoolExecutor(max_workers=2000) as executor:
         executor.map(portScanner, port_List)
 
     print('[*] The scan is complete!')
