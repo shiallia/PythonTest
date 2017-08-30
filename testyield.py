@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
-=======
-from concurrent.futures import ThreadPoolExecutor,ProcessPoolExecutor
->>>>>>> origin/master
 import time
 
 
@@ -14,21 +10,14 @@ def return_future(msg):
 
 # 创建一个线程池
 pool = ThreadPoolExecutor(max_workers=2)
-<<<<<<< HEAD
 # pool = ProcessPoolExecutor
-=======
-pool = ProcessPoolExecutor
->>>>>>> origin/master
 
 # 往线程池加入2个task
 f1 = pool.submit(return_future, 'hello')
 f2 = pool.submit(return_future, 'world')
 
-<<<<<<< HEAD
 # time.sleep(4)
 
-=======
->>>>>>> origin/master
 # print(f1.done())
 # print(f2.done())
 # time.sleep(3)
