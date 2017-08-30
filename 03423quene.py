@@ -8,7 +8,10 @@ def read(q):
         try:
             value = q.get()
             print('Get %s from queue.' % value)
+<<<<<<< HEAD
             print()
+=======
+>>>>>>> origin/master
             time.sleep(1)
         except Exception as e:
             print(e)

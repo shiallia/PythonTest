@@ -11,9 +11,15 @@ def portScanner(host,port):
         print('[-] %d close' % port)
 
 def main():
+<<<<<<< HEAD
     #setdefaulttimeout(1)
     start = time.time()
     for p in range(40, 43):
+=======
+    setdefaulttimeout(1)
+    start = time.time()
+    for p in range(50):
+>>>>>>> origin/master
         portScanner('123.57.143.114', p)
     print('COST: {}'.format(time.time() - start))
 
