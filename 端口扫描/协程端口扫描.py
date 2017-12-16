@@ -7,7 +7,7 @@ from socket import *
 import time
 import asyncio
 
-port_List = list(range(1, 45))
+port_List = list(range(1, 81))
 ip = '123.57.143.114'
 loop = asyncio.get_event_loop()
 
@@ -16,7 +16,8 @@ async def portScanner(host, port):
     try:
         s = socket(AF_INET, SOCK_STREAM)
         s.setblocking(False)
-        await loop.sock_connect(s, (host, port), timeout=1)
+        # await loop.sock_connect(s, (host, port), timeout=1)
+        await loop.sock_connect(s, (host, port))
         print('[+] %d open' % port)
         s.close()
     except Exception as e:
@@ -31,7 +32,7 @@ def hello_world():
 
 def main():
     start = time.time()
-    # setdefaulttimeout(0.1)            #在nonblocing的socket里面，这个失效了
+    setdefaulttimeout(100)            #在nonblocing的socket里面，这个失效了
     futures = []
     for port in port_List:
         futu = loop.create_task(portScanner(ip, port))
