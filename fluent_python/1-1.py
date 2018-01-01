@@ -39,3 +39,5 @@ print(choice(desk))
 
 for card in desk:
     print(card)
+
+
