@@ -7,11 +7,7 @@
 
 
 
-<<<<<<< HEAD
-def test(a, b):
-=======
 def test(a,b):
->>>>>>> origin/master
     pass
 
 
@@ -19,23 +15,14 @@ def main():
     global a
     a = a + 1
     print(a)
-<<<<<<< HEAD
-    test(1, 2)
-    test2(1, 2)
-=======
     test(1,2)
-    test2(1,2)
->>>>>>> origin/master
+    test2()
 
 def test2():
     pass
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    a = 3
-=======
     a=3
->>>>>>> origin/master
     main()
 
 

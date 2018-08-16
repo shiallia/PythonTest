@@ -16,6 +16,7 @@ def test():
     return -5
 
 if __name__ == '__main__':
+    print(multiprocessing.current_process())
     t1 = multiprocessing.Process(target=deadloop)
     t2 = multiprocessing.Process(target=deadloop)
     t3 = multiprocessing.Process(target=deadloop)

@@ -7,8 +7,9 @@ from socket import *
 import time
 import asyncio
 
-port_List = list(range(1, 100))
+port_List = list(range(1, 600))
 ip = '123.57.143.114'
+asyncio.Semaphore(1)
 loop = asyncio.get_event_loop()
 
 
@@ -22,8 +23,9 @@ async def portScanner(host, port):
         print('[+] %d open' % port)
         s.close()
     except Exception as e:
+        pass
         # print(e)
-        print('[-] %d close' % port)
+        # print('[-] %d close' % port)
 
 
 def hello_world():
