@@ -7,10 +7,7 @@ from socket import *
 import time
 import asyncio
 
-port_List = list(range(1, 600))
-ip = '123.57.143.114'
-asyncio.Semaphore(1)
-loop = asyncio.get_event_loop()
+
 
 
 async def portScanner(host, port):
@@ -19,31 +16,28 @@ async def portScanner(host, port):
         s.setblocking(False)
         # await loop.sock_connect(s, (host, port), timeout=1)
         # await loop.sock_connect(s, (host, port), timeout=2000)
-        await asyncio.wait_for(loop.sock_connect(s, (host, port)), timeout=1)
+        #await asyncio.wait_for(loop.sock_connect(s, (host, port)), timeout=1)
+        await loop.sock_connect(s, (host, port))
         print('[+] %d open' % port)
         s.close()
     except Exception as e:
         pass
-        # print(e)
-        # print('[-] %d close' % port)
-
-
-def hello_world():
-    print('Hello World')
-    loop.stop()
 
 
 def main():
     start = time.time()
-    # setdefaulttimeout(100)            #在nonblocing的socket里面，这个失效了
-    futures = []
+    tasks = []
     for port in port_List:
         futu = loop.create_task(portScanner(ip, port))
-        futures.append(futu)
-    loop.run_until_complete(asyncio.wait(futures))
+        tasks.append(futu)
+    loop.run_until_complete(asyncio.wait(tasks))
 
     print('COST: {}'.format(time.time() - start))
 
 
 if __name__ == '__main__':
+    port_List = list(range(1, 500))
+    ip = '123.57.143.114'
+    #loop = asyncio.get_event_loop()
+    loop = asyncio.ProactorEventLoop()
     main()

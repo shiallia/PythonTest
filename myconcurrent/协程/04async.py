@@ -18,6 +18,7 @@ def wget(host):
     writer.close()
 
 async def sl():
+    pass
 
 
 
