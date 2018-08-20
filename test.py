@@ -1,11 +1,8 @@
-
-          
-
+import subprocess,os
 
 
-for i in 'abc':
-    print(i)
 
-for i in iter('abc'):
-    print(i)
+cmd=["python","-m","http.server"]
+p = subprocess.Popen(cmd)
+print(p.pid)
 
